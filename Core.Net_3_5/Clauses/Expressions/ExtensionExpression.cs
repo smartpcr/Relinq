@@ -59,7 +59,7 @@ namespace Remotion.Linq.Clauses.Expressions
     }
 
     /// <summary>
-    /// Must be overridden by <see cref="ExtensionExpression"/> subclasses by calling <see cref="ExpressionVisitor.Visit(Expression)"/> on all 
+    /// Must be overridden by <see cref="ExtensionExpression"/> subclasses by calling <see cref="ExpressionVisitor"/> on all 
     /// children of this extension node. 
     /// </summary>
     /// <param name="visitor">The visitor to visit the child nodes with.</param>
@@ -153,7 +153,7 @@ namespace Remotion.Linq.Clauses.Expressions
     }
 
     /// <summary>
-    /// Accepts the specified visitor, by default dispatching to <see cref="ExpressionVisitor.VisitExtension"/>. 
+    /// Accepts the specified visitor, by default dispatching to <see cref="ExpressionVisitor"/>. 
     /// Inheritors of the <see cref="ExtensionExpression"/> class can override this method in order to dispatch to a specific Visit method.
     /// </summary>
     /// <param name="visitor">The visitor whose Visit method should be invoked.</param>
@@ -161,7 +161,7 @@ namespace Remotion.Linq.Clauses.Expressions
     /// <remarks>
     /// Overriders can test the <paramref name="visitor"/> for a specific interface. If the visitor supports the interface, the extension expression 
     /// can dispatch to the respective strongly-typed Visit method declared in the interface. If it does not, the extension expression should call 
-    /// the base implementation of <see cref="Accept"/>, which will dispatch to <see cref="ExpressionVisitor.VisitExtension"/>.
+    /// the base implementation of <see cref="Accept"/>, which will dispatch to <see cref="ExpressionVisitor"/>.
     /// </remarks>
     protected virtual Expression Accept (ExpressionVisitor visitor)
     {
